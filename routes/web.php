@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => '/', 'uses' => 'OrderController@showView']);
+
+Route::post('createOrder', ['as' => 'createOrder', 'uses' => 'OrderController@createOrder']);
+
