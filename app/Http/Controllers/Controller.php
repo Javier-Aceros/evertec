@@ -16,7 +16,8 @@ class Controller extends BaseController
      * @param array datos La información devuelta al cliente
      * @param integer code El código de respuesta a mostrar
      */
-    protected function response($datos, $code){
+    protected function response($datos, $code)
+    {
 		return response()->json($datos, $code);
 	}
 
@@ -25,7 +26,8 @@ class Controller extends BaseController
      * @param array datos Mensajes devueltos por el validador de Laravel
      * @param array datos La información devuelta al cliente
      */
-    protected function validationError($datos){
+    protected function validationError($datos)
+    {
         return $this->response(['success' => false, 'data' => $datos], 200);
 	}
 
@@ -34,7 +36,8 @@ class Controller extends BaseController
      * @param string mensaje Mensaje de respuesta que se mostrara al cliente
      * @param array datos La información devuelta al cliente
      */
-    protected function errorResponse($mensaje, $datos = null){
+    protected function errorResponse($mensaje, $datos = null)
+    {
         if(isset($datos)){
             return $this->response(
                 [
@@ -54,7 +57,8 @@ class Controller extends BaseController
      * @param string mensaje Mensaje de respuesta que se mostrara al cliente
      * @param array datos La información devuelta al cliente
      */
-    protected function successResponse($mensaje = null, $datos = null){
+    protected function successResponse($mensaje = null, $datos = null)
+    {
         return $this->response(['success' => true, 'mensaje' => $mensaje, 'data' => $datos], 200);
     }
 }

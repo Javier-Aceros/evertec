@@ -19,3 +19,7 @@ Route::group(['prefix' => 'order'], function(){
 	Route::get('show/{order_id}', 'OrderController@show')->where(['order_id' => '[0-9]+']);
 	Route::get('status/{order_id}', 'OrderController@status')->where(['order_id' => '[0-9]+']);
 });
+
+Route::group(['prefix' => 'pay'], function(){
+	Route::post('create', 'PayController@create');
+});
