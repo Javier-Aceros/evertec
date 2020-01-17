@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'OrderController@create');
+
+Route::group(['prefix' => 'order'], function(){
+	Route::get('index', 'OrderController@index');
+	Route::post('store', 'OrderController@store');
+	Route::get('show/{order_id}', 'OrderController@show')->where(['order_id' => '[0-9]+']);
+	Route::get('status/{order_id}', 'OrderController@status')->where(['order_id' => '[0-9]+']);
+});
+
+Route::group(['prefix' => 'pay'], function(){
+	Route::post('create', 'PayController@create');
 });
