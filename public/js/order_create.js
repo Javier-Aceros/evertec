@@ -67,6 +67,10 @@ function send_form(event, route, form, buttonsubmit){
         else{
           show_modal_message(response.mensaje);
         }
+
+        $('#Modal').on('hidden.bs.modal', function () {
+          buttonsubmit.attr("disabled", false);
+        });
       }
     },
     error: function(XMLHttpRequest, textStatus, errorThrown){
