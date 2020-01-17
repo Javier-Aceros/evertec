@@ -35,8 +35,17 @@
         <input type="hidden" name="customer_email" value="{{ $order->customer_email }}">
         <input type="hidden" name="customer_name" value="{{ $order->customer_name }}">
         <input type="hidden" name="id" value="{{ $order->id }}">
-        <input type="hidden" name="ip" value="{{ $_SERVER['REMOTE_ADDR'] }} ">
-        <input type="hidden" name="browser" value="{{ $_SERVER['HTTP_USER_AGENT'] }} ">
+
+        @if(isset($_SERVER['REMOTE_ADDR']))
+          <input type="hidden" name="ip" value="{{ $_SERVER['REMOTE_ADDR'] }} ">
+        @else
+          <input type="hidden" name="ip" value="{{ "127.0.0.1" }} ">
+        @endisset
+        @if(isset($_SERVER['HTTP_USER_AGENT']))
+          <input type="hidden" name="browser" value="{{ $_SERVER['HTTP_USER_AGENT'] }} ">
+        @else
+          <input type="hidden" name="browser" value="{{ "Mozilla" }} ">
+        @endisset
 
         <div class="container">
           <div class="row">
