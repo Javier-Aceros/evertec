@@ -24,7 +24,7 @@ class OrderRepository
      */
     public function all()
     {
-        return $this->order->all();
+        return $this->order->paginate(3);
     }
 
     /**

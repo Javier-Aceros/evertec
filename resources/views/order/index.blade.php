@@ -33,6 +33,14 @@
                 <td>{{ $order->diff }}</td>
               </tr>
             @endforeach
+
+            {{-- Paginación --}}
+            <div id="links">
+              <nav aria-label="Page navigation">
+                {{ $orders->links() }}
+              </nav>
+            </div>
+
           @else
             {{-- Si no hay órdenes creadas se muestra un mensaje --}}
             <tr>
@@ -45,3 +53,7 @@
     </div>
   </div>
 @stop
+
+{{-- jQuery 2.2.3 --}}
+<script src="{{ URL::to('/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+<script src="{{ URL::to('/js/order_index.js') }}"></script>
